@@ -1,3 +1,24 @@
+/*
+    The Color Cube Example
+
+    Copyright (C) 2015  Enzhaev Ivan
+
+    Email: 8observer8@gmail.com
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
 #include "LoaderOfCube.h"
 #include <assimp/Importer.hpp>
 #include <assimp/postprocess.h>
@@ -48,10 +69,10 @@ void LoaderOfCube::init( const aiScene *scene )
 {
     for ( unsigned int i = 0; i < scene->mRootNode->mNumChildren; ++i )
     {
-        aiNode *node = scene->mRootNode->mChildren[i];
-        aiMesh *mesh = scene->mMeshes[node->mMeshes[0]];
+        const aiNode *node = scene->mRootNode->mChildren[i];
+        const aiMesh *mesh = scene->mMeshes[node->mMeshes[0]];
 
-        aiMaterial *mat = scene->mMaterials[mesh->mMaterialIndex];
+        const aiMaterial *mat = scene->mMaterials[mesh->mMaterialIndex];
 
         aiString name;
         mat->Get( AI_MATKEY_NAME, name );
